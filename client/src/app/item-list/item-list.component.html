@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-lg-3" *ngFor="let item of items">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"><strong>Votes: </strong>{{ item.votes }}</h6>
+      </div>
+    </div>
+  </div>
+</div>
