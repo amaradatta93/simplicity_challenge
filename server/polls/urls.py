@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.add_vote, name='vote'),
+    path('<int:item_id>', views.add_vote, name='vote'),
 ]

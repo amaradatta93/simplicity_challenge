@@ -14,5 +14,5 @@ def item(request):
     }
     """
 
-    all_items = Item.objects.annotate(total_votes=Count('votes'))
-    return JsonResponse(all_items)
+    all_items = Item.objects.annotate(total_votes=Count('vote')).values('pk', 'name', 'total_votes')
+    return JsonResponse({'items': list(all_items)})
