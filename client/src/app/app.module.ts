@@ -4,18 +4,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ItemListComponent } from './item-list/item-list.component';
-import { ItemsService } from './items.service';
+import { ItemsService } from './services/items.service';
+import { VoteComponent } from './vote/vote.component';
+import { VotesService } from './services/votes.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemListComponent
+    ItemListComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [ItemsService],
+  providers: [ItemsService, VotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
