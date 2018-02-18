@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'items.apps.ItemsConfig',
     'django.contrib.admin',
-    'rest_framework',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -86,14 +85,6 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
-}
-
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
 }
 
 # Password validation
