@@ -4,7 +4,7 @@ from users.models import Student
 
 
 class Vote(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
 
     def as_dict(self):

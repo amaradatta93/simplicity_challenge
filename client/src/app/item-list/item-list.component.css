@@ -1,0 +1,20 @@
+.index {
+  color: gray;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.vote-count {
+  margin-right: 0.5em;
+  font-style: italic;
+}
+
+.index {
+  margin-right: 0.6em;
+}

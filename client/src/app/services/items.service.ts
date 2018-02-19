@@ -1,14 +1,22 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../models/item';
+import {HttpClient} from '@angular/common/http';
+import {map, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class ItemsService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getItems(): Item[] {
-    return [{id: 1, name: 'Apple', votes: 2}, {id: 2, name: 'Pineapple', votes: 10}];
+  private itemsUrl = 'api/items/';
+
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.itemsUrl).pipe(
+      map(res => res.items),
+      map(items => items.map(item => new Item(item.pk, item.name, item.total_votes)))
+    );
   }
 }
 

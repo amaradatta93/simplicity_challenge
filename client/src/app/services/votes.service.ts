@@ -1,14 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Vote} from '../models/vote';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class VotesService {
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
 
+  // private itemsUrl = 'api/polls/itemId/';
+
   addVote(vote: Vote) {
-    return;
+    return ;
   }
 
   getByUserId(userId: number): Vote[] {

@@ -1,10 +1,14 @@
 <div class="row">
-  <div class="col-lg-3" *ngFor="let item of items">
+  <div class="col-lg-6 offset-lg-3 mb-2" *ngFor="let item of items; index as i;">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{item.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted"><strong>Votes: </strong>{{ item.votes }}</h6>
-        <app-vote [itemId]="item.id"></app-vote>
+        <div class="left">
+          <h5 class="card-title"><span class="index">#{{ i + 1 }} </span> {{ item.name }} </h5>
+        </div>
+        <div class="right">
+          <span class="vote-count"><strong>Votes: </strong>{{ item.votes }}</span>
+          <app-vote [voteItem]="item"></app-vote>
+        </div>
       </div>
     </div>
   </div>
