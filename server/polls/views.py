@@ -11,6 +11,14 @@ import json
 
 @csrf_exempt
 def add_vote(request, item_id):
+    """
+    User ID is sent via rest api in the request body.
+    Attempts to add a vote to the given item ID.
+    If the user has already voted for any item, a 400 response is returned.
+    :param request:
+    :param item_id:
+    :return:
+    """
     if request.method == "POST":
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)

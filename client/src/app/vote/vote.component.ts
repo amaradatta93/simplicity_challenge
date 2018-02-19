@@ -15,12 +15,13 @@ export class VoteComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.voteItem);
   }
 
   addVote(userId: number): void {
-    console.log('adding vote  for ' + this.voteItem.id + ', userId: ' + userId);
+    // When a vote is successfully added, notify subscribers
     this.votesService.addVote({itemId: this.voteItem.id, userId: userId, id: null})
-      .subscribe(() =>  this.voteItem.votes += 1);
+      .subscribe(() => {
+        this.votesService.VoteIsAdded.next(true);
+      });
   }
 }

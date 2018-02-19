@@ -14,5 +14,9 @@ class Vote(models.Model):
             'item_id': self.item.pk
         }
 
+    """
+    User can vote only for a particular item
+    """
+
     class Meta:
         unique_together = ('student', 'item')

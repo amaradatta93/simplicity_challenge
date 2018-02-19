@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Vote} from '../models/vote';
 import {HttpClient} from '@angular/common/http';
+import {Subject} from 'rxjs/Subject';
+
 
 @Injectable()
 export class VotesService {
+
+  public VoteIsAdded: Subject<boolean> = new Subject<boolean>();
 
   constructor(private httpClient: HttpClient) {
   }
@@ -15,9 +19,4 @@ export class VotesService {
 
     return this.httpClient.post(url, {student_id: vote.userId});
   }
-
-  getByUserId(userId: number): Vote[] {
-    return null;
-  }
-
 }

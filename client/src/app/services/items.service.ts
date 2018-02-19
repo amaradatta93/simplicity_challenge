@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../models/item';
 import {HttpClient} from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -12,6 +12,10 @@ export class ItemsService {
 
   private itemsUrl = 'api/items/';
 
+  /**
+   *The items list is extracted form json and converted into list of object
+   * @returns {Observable<Item[]>}
+   */
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.itemsUrl).pipe(
       map(res => res.items),

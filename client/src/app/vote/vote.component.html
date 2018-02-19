@@ -1,9 +1,11 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-toggle="modal" [attr.data-target]="'#voteUserIdModal' + voteItem.id">Vote
+<button type="button" class="btn btn-success" data-toggle="modal" [attr.data-target]="'#voteUserIdModal' + voteItem.id">
+  Vote
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="{{ 'voteUserIdModal' + voteItem.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{ 'voteUserIdModal' + voteItem.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,11 +16,12 @@
       </div>
       <div class="modal-body">
         <label for="studentId">Enter Your Student ID</label>
-        <input #userId class="input-group form-control" id="studentId" type="text" />
+        <input #userId class="input-group form-control" id="studentId" type="text"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addVote(userId.value)">Confirm Vote</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addVote(userId.value)">Confirm Vote
+        </button>
       </div>
     </div>
   </div>
