@@ -20,6 +20,7 @@ export class VoteComponent implements OnInit {
 
   addVote(userId: number): void {
     console.log('adding vote  for ' + this.voteItem.id + ', userId: ' + userId);
-    return this.votesService.addVote({itemId: this.voteItem.id, userId: userId, id: null});
+    this.votesService.addVote({itemId: this.voteItem.id, userId: userId, id: null})
+      .subscribe(() =>  this.voteItem.votes += 1);
   }
 }

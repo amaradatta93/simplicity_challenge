@@ -8,14 +8,16 @@ export class VotesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // private itemsUrl = 'api/polls/itemId/';
+  private itemsUrl = 'api/polls/';
 
   addVote(vote: Vote) {
-    return ;
+    const url: string = this.itemsUrl + vote.itemId; // api/polls/1
+
+    return this.httpClient.post(url, {student_id: vote.userId});
   }
 
   getByUserId(userId: number): Vote[] {
-    return [{id: 1, itemId: 2, userId: 1}, {id: 2, itemId: 3, userId: 2}];
+    return null;
   }
 
 }

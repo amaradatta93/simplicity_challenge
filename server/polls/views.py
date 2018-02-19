@@ -6,15 +6,19 @@ from django.views.decorators.csrf import csrf_exempt
 from items.models import Item
 from users.models import Student
 from .models import Vote
+import json
 
 
 @csrf_exempt
 def add_vote(request, item_id):
     if request.method == "POST":
-        if 'student_id' not in request.POST:
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+
+        if 'student_id' not in body:
             return HttpResponseBadRequest()
 
-        vote_user = get_object_or_404(Student, pk=request.POST['student_id'])
+        vote_user = get_object_or_404(Student, pk=body['student_id'])
         vote_item = get_object_or_404(Item, pk=item_id)
 
         vote = Vote()
