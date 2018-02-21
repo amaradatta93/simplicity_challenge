@@ -1,7 +1,7 @@
 Clone the repository
 
 #Server:
-`cd srever`
+`cd server`
 Create a virtual environment using: `virtualenv env`
 Activate virtual env: `source env/bin/activate`
 Install requirements: `pip install -r requirements.txt`

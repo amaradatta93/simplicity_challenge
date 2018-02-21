@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ItemsService} from '../services/items.service';
 import {Item} from '../models/item';
 import {VotesService} from '../services/votes.service';
-import _ = require('lodash');
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-item-list',
