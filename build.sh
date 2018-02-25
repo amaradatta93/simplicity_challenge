@@ -1,3 +1,5 @@
+python manage.py makemigrations
+python manage.py migrate
 cd client/
 npm install
 npm run-script build -- --outputPath="../static/" --base-href="/static/"

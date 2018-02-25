@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'voting',
-        'USER': 'voting_app',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.environ.get('DATABASE_NAME', 'voting'),
+        'USER': os.environ.get('DATABASE_USER', 'voting_app'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
+        'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
+        'PORT': os.environ.get('DATABASE_PORT', '5432'),
     }
 }
 
