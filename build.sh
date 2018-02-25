@@ -1,8 +1,5 @@
 python manage.py makemigrations
 python manage.py migrate
-cd client/
-npm install
-npm run-script build -- --outputPath="../static/" --base-href="/static/"
-cd ..
+npm --prefix client run-script build -- --outputPath="../static/" --base-href="/static/"
 mkdir templates
 cp ./static/index.html ./templates/index.html
