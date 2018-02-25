@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "watch": "ng build -w",
-    "postinstall": "ng build --prod --outputPath='../static/' --base-href='/static/'"
+    "postinstall": "ng build --prod --outputPath='../dist/' --base-href='/static/'"
   },
   "private": true,
   "dependencies": {

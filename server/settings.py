@@ -40,7 +40,11 @@ SECRET_KEY = ')0!w_73%2i5_h))mp9a$n&-xn78)2!wl*+4x1$0b!!=u0^ms%('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mighty-ridge-29387.herokuapp.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 # Application definition
 
@@ -139,5 +143,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "dist"),
 ]
