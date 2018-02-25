@@ -11,6 +11,22 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import re
+
+POSTGRES_URL_REGEX = re.compile(
+    r'^postgres:\/\/(?P<username>.*?):(?P<password>.*?)@(?P<host>.*?):(?P<port>\d+)/(?P<db>.*?)$')
+
+
+def get_postgres_settings(url):
+    matches = POSTGRES_URL_REGEX.match(url)
+    return {
+        'name': matches.group('db'),
+        'username': matches.group('username'),
+        'password': matches.group('password'),
+        'host': matches.group('host'),
+        'port': matches.group('port')
+    }
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -73,15 +89,15 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+pg = get_postgres_settings(os.environ.get('DATABASE_URL', 'postgres://voting_app:password@127.0.0.1:5432/voting'))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME', 'voting'),
-        'USER': os.environ.get('DATABASE_USER', 'voting_app'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
-        'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DATABASE_PORT', '5432'),
+        'NAME': pg['name'],
+        'USER': pg['username'],
+        'PASSWORD': pg['password'],
+        'HOST': pg['host'],
+        'PORT': pg['port'],
     }
 }
 
