@@ -10,7 +10,7 @@ export class ItemsService {
   constructor(private http: HttpClient) {
   }
 
-  private itemsUrl = 'api/items/';
+  private itemsUrl = '../api/items/';
 
   /**
    *The items list is extracted form json and converted into list of object

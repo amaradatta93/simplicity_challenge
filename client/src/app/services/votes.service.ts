@@ -12,7 +12,7 @@ export class VotesService {
   constructor(private httpClient: HttpClient) {
   }
 
-  private itemsUrl = 'api/polls/';
+  private itemsUrl = '../api/polls/';
 
   addVote(vote: Vote) {
     const url: string = this.itemsUrl + vote.itemId; // api/polls/1
